@@ -1,0 +1,212 @@
+@import 'styles/mixins';
+
+.home {
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	background: url('../../assets/images/main-bg.jpg') center no-repeat;
+	background-size: cover;
+	padding: 60px 0 0 0;
+	color: var(--home-text-color);
+	position: relative;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		top: 0;
+		bottom: 0;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	&__content {
+		display: flex;
+		gap: 30px;
+		width: 100%;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	&__chart__content {
+		width: 100%;
+		position: relative;
+	}
+
+	&__chart__btns {
+		display: flex;
+		position: absolute;
+		bottom: 0;
+		transform: translate(-50%, 120%);
+		left: 50%;
+		gap: 20px;
+	}
+
+	&__chart__btn {
+		color: var(--chart-button-text-color);
+		background: var(--chart-button-background);
+		@include adaptiv-value('font-size', 18, 16, 0);
+		@include adaptiv-value('padding-top', 10, 8, 0);
+		@include adaptiv-value('padding-bottom', 10, 8, 0);
+		@include adaptiv-value('padding-left', 20, 10, 0);
+		@include adaptiv-value('padding-right', 20, 10, 0);
+		border-radius: 20px;
+		transition: all 0.3s linear 0s;
+
+		&:hover {
+			background: var(--chart-button-background-hover);
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 30px;
+
+		&:nth-child(1) {
+			.home__card {
+				@include adaptiv-value('padding-top', 30, 15, 0);
+				@include adaptiv-value('padding-bottom', 30, 15, 0);
+				@include adaptiv-value('padding-left', 50, 30, 0);
+				@include adaptiv-value('padding-right', 50, 30, 0);
+				justify-content: center;
+			}
+		}
+
+		&:nth-child(2) {
+			.home__card {
+				align-items: center;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+
+	&__card {
+		background: var(--card-background);
+		color: var(--card-text-color);
+		padding: 10px;
+		border-radius: 20px;
+		@include adaptiv-value('width', 500, 300, 0);
+		display: flex;
+		flex-direction: column;
+		transition: all 0.3s linear 0s;
+
+		*+* {
+			margin-top: 30px;
+		}
+
+		svg {
+			width: 100%;
+			height: auto;
+		}
+
+		&:nth-child(1) {
+
+			svg {
+				margin-left: 20px;
+
+				path {
+					fill: var(--card-chart-bar-fill);
+				}
+			}
+		}
+
+		&:nth-child(2) {
+			svg {
+				path:nth-child(1) {
+					fill: var(--card-chart-line-fill);
+				}
+
+				path:nth-child(2) {
+					stroke: var(--card-chart-line-stroke);
+				}
+			}
+		}
+	}
+
+
+	&__title {
+		@include adaptiv-value('font-size', 36, 26, 0);
+		font-family: $fontFamilySecondary;
+	}
+
+	&__text {
+		@include adaptiv-value('font-size', 18, 14, 0);
+	}
+
+	&__btn {
+		color: var(--button-text-color);
+		background: var(--card-button-background);
+		transition: all 0.3s linear 0s;
+		@include adaptiv-value('font-size', 20, 16, 0);
+		@include adaptiv-value('padding-top', 10, 8, 0);
+		@include adaptiv-value('padding-bottom', 10, 8, 0);
+		@include adaptiv-value('padding-left', 20, 15, 0);
+		@include adaptiv-value('padding-right', 20, 15, 0);
+		border-radius: 20px;
+		position: relative;
+		overflow: hidden;
+		width: max-content;
+		cursor: auto;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 25px;
+			height: 100%;
+			left: -25%;
+			top: 0;
+			background: linear-gradient(to right, transparent, #fff, transparent);
+			animation: animBtn 4s ease-out 2s infinite;
+		}
+	}
+
+	&__add__modal {
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0, 0, 0, .4);
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	&__add__modal__content {
+		background: var(--modal-content-background);
+		color: var(--modal-title-color);
+		@include adaptiv-value('width', 550, 320, 0);
+		@include adaptiv-value('height', 450, 250, 0);
+		@include adaptiv-value('padding-top', 10, 8, 0);
+		@include adaptiv-value('padding-bottom', 10, 8, 0);
+		@include adaptiv-value('padding-left', 30, 15, 0);
+		@include adaptiv-value('padding-right', 30, 15, 0);
+		text-align: center;
+		position: relative;
+	}
+}
+
+@keyframes animBtn {
+	0% {
+		left: -25%;
+	}
+
+	50% {
+		left: -25%;
+	}
+
+	75% {
+		left: -25%;
+	}
+
+	100% {
+		left: 100%;
+	}
+}

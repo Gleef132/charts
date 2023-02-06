@@ -1,0 +1,18 @@
+@import 'styles/mixins';
+
+.btn {
+	background-color: var(--button-background);
+	color: var(--button-text-color);
+	transition: all 0.3s ease 0s;
+	@include adaptiv-value('padding-top', 10, 8, 0);
+	@include adaptiv-value('padding-bottom', 10, 8, 0);
+	@include adaptiv-value('padding-left', 30, 15, 0);
+	@include adaptiv-value('padding-right', 30, 15, 0);
+	@include adaptiv-value('font-size', 22, 18, 0);
+	border-radius: 30px;
+	width: 100%;
+
+	&:hover {
+		background-color: var(--button-background-hover);
+	}
+}

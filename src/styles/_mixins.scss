@@ -1,0 +1,121 @@
+// Переменные
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1590;
+
+$mainBlackColor: #111;
+$mainWhiteColor: #fff;
+$mainSilverColor: #d4cecd;
+
+$fontFamilyPrimary: 'PT Sans',
+sans-serif;
+$fontFamilySecondary: 'Quicksans';
+
+// light #38e8a4
+// dark #18a163
+
+html[data-theme="light"] {
+	// body
+	--body-background: #fff;
+	// header
+	--header-background: #fff;
+	--header-logo-text-color: #000;
+	//button
+	--button-text-color: #fff;
+	--button-background: #3051e3;
+	--button-background-hover: #1a265a;
+	--button-theme-background: #272751;
+	--button-theme-circle-background: #fff;
+	--button-home-main-background: #000;
+	//modal
+	--modal-background: rgba(0, 0, 0, .7);
+	--modal-content-background: #fff;
+	--modal-title-color: #000;
+	--modal-title-border-color: #000;
+	--modal-list-background: #111;
+	--modal-list-text-color: #ccc;
+	--modal-list-text-color-hover: #fff;
+	--modal-list-border-color: #000;
+	--modal-error-text-color: red;
+	--modal-error-background: #555;
+	//home
+	--home-text-color: #fff;
+	// card
+	--card-background: rgba(255, 255, 255, .9);
+	--card-text-color: #000;
+	--card-button-background: #3552e6;
+	--card-chart-line-fill: rgba(53, 82, 230, .4);
+	--card-chart-line-stroke: #3552e6;
+	--card-chart-bar-fill: #3552e6;
+	// chart
+	--chart-button-text-color: #000;
+	--chart-button-background: #fff;
+}
+
+html[data-theme="dark"] {
+	// body
+	--body-background: #fff;
+	// header
+	--header-background: #000;
+	--header-logo-text-color: #fff;
+	//button
+	--button-text-color: #fff;
+	--button-background: rgba(56, 232, 164, .4);
+	--button-background-hover: rgba(56, 232, 164, .7);
+	--button-theme-background: #fff;
+	--button-theme-circle-background: #fff;
+	--button-theme-circle-night: #272751;
+	--button-home-main-background: #000;
+	//modal
+	--modal-background: rgba(0, 0, 0, .7);
+	--modal-content-background: #111;
+	--modal-title-color: #fff;
+	--modal-title-border-color: #fff;
+	--modal-list-background: #111;
+	--modal-list-text-color: #ccc;
+	--modal-list-text-color-hover: #fff;
+	--modal-list-border-color: #fff;
+	--modal-error-text-color: red;
+	--modal-error-background: #555;
+	//home
+	--home-text-color: #fff;
+	// card
+	--card-background: rgba(0, 0, 0, .8);
+	--card-text-color: #fff;
+	--card-button-background: #38e8a4;
+	--card-chart-line-fill: rgba(56, 232, 164, .4);
+	--card-chart-line-stroke: #38e8a4;
+	--card-chart-bar-fill: #38e8a4;
+	// chart
+	--chart-button-text-color: #fff;
+	--chart-button-background: rgba(56, 232, 164, .4);
+	--chart-button-background-hover: rgba(56, 232, 164, .7);
+}
+
+// Mиксины
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+
+	@if $type==1 {
+		// Только если меньше контейнера
+		#{$property}: $startSize + px;
+
+		@media (max-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+		}
+	}
+
+	@else if $type==2 {
+		// Только если больше контейнера
+		#{$property}: $startSize + px;
+
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+		}
+	}
+
+	@else {
+		// Всегда
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+	}
+}
