@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/charts/static/css/main.9114e21f.css",
+    "main.js": "/charts/static/js/main.0c2c1f7a.js",
+    "static/media/main-bg.jpg": "/charts/static/media/main-bg.dea1d89bb28fb685a32c.jpg",
+    "static/media/lineGraph.svg": "/charts/static/media/lineGraph.102594c51a5f74beebbf00815336b7e4.svg",
+    "static/media/barGraph.svg": "/charts/static/media/barGraph.73a49be7dfbd462ff05ad59491045b13.svg",
+    "index.html": "/charts/index.html",
+    "main.9114e21f.css.map": "/charts/static/css/main.9114e21f.css.map",
+    "main.0c2c1f7a.js.map": "/charts/static/js/main.0c2c1f7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9114e21f.css",
+    "static/js/main.0c2c1f7a.js"
+  ]
+}
